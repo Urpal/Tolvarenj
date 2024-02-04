@@ -162,5 +162,5 @@ cython_debug/
 
 # Local ignores
 data/
-tolvarenv/
+tolvarvenv/
 requirements.txt
