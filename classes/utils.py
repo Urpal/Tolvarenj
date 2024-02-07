@@ -6,9 +6,30 @@ def highlight_row_equalto(s, value, column):
     is_max[column] = s.loc[column] == value
     return ["background-color: red" if is_max.any() else "" for v in is_max]
 
+def get_pickled_obj(path: str):
+    try:
+        # stored_obj = db.storage.binary.get(path)
+        with open(path, 'rb') as file:
+            stored_obj = pickle.load(file)
+        return stored_obj #pickle.loads(stored_obj)
+    except:
+        st.write(f"Could not load any pickled data with path: {path}")
+        return None
+
+def store_pickled_obj(path: str, data):
+    with open(path, 'wb') as file:
+        pickle.dump(data, file)
+
 
 def bookies():
-    bookies = [
+    """
+    The bookies function returns a list of bookies that are used in the analysis.
+        
+    
+    :return: A list of bookies
+    :doc-author: Trelent
+    """
+    update_df_objbookies = [
         "Unibet",
         "Norsk Tipping",
         "Betfair",

@@ -16,24 +16,7 @@ import pickle
 
 # TODO: Remove these imports
 # from handle import handle_the_odds
-from update import update_df_obj
-from utils import bookies, highlight_row_equalto
-
-
-# @st.cache_resource
-def get_pickled_obj(path: str):
-    try:
-        # stored_obj = db.storage.binary.get(path)
-        with open(path, 'rb') as file:
-            stored_obj = pickle.load(file)
-        return stored_obj #pickle.loads(stored_obj)
-    except:
-        st.write(f"Could not load any pickled data with path: {path}")
-        return None
-
-def store_pickled_obj(path: str, data):
-    with open(path, 'wb') as file:
-        pickle.dump(data, file)
+from classes.utils import bookies, highlight_row_equalto, update_df_obj, get_pickled_obj, store_pickled_obj
 
 abs_path = os.path.abspath(__file__) + "/data/"
 
